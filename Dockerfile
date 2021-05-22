@@ -140,7 +140,7 @@ EXPOSE 5432
 EXPOSE 8080
 
 COPY conf.d/env $PROJECT_DIR/.env
-RUN nominatim
+RUN nominatim import
 
 RUN sh /app/init.sh
 

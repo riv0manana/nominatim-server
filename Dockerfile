@@ -124,6 +124,7 @@ COPY start.sh /app/start.sh
 COPY startapache.sh /app/startapache.sh
 COPY startpostgres.sh /app/startpostgres.sh
 
+RUN nominatim
 RUN sh /app/init.sh
 
 # Collapse image to single layer.

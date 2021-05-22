@@ -3,9 +3,6 @@ FROM ubuntu:focal AS build
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
-# Please override this
-ENV NOMINATIM_PASSWORD Diego@2021
-
 WORKDIR /app
 
 RUN true \
@@ -124,15 +121,13 @@ COPY start.sh /app/start.sh
 COPY startapache.sh /app/startapache.sh
 COPY startpostgres.sh /app/startpostgres.sh
 
-RUN nominatim sh /app/init.sh
-
 # Collapse image to single layer.
 FROM scratch
 
 COPY --from=build / /
 
 # Please override this
-ENV NOMINATIM_PASSWORD Diego@2021
+ENV NOMINATIM_PASSWORD qaIACxO6wMR3
 # how many threads should be use for importing
 ENV THREADS=16
 
@@ -140,9 +135,6 @@ ENV PROJECT_DIR /nominatim
 CMD mkdir ${PROJECT_DIR}
 
 WORKDIR /app
-
-ENV PBF_URL = https://download.geofabrik.de/africa/madagascar-latest.osm.pbf
-ENV REPLICATION_URL=https://download.geofabrik.de/africa/madagascar-updates/
 
 EXPOSE 5432
 EXPOSE 8080

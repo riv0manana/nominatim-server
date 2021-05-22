@@ -141,4 +141,4 @@ COPY conf.d/env $PROJECT_DIR/.env
 
 RUN sh /app/init.sh
 
-CMD /app/start.sh
+CMD sh /app/start.sh

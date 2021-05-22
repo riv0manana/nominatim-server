@@ -127,7 +127,7 @@ FROM scratch
 COPY --from=build / /
 
 # Please override this
-ENV NOMINATIM_PASSWORD qaIACxO6wMR3
+ENV NOMINATIM_PASSWORD Dev@riv0manana
 # how many threads should be use for importing
 ENV THREADS=16
 

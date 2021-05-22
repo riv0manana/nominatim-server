@@ -3,6 +3,9 @@ FROM ubuntu:focal AS build
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
+# Please override this
+ENV NOMINATIM_PASSWORD Diego@2021
+
 WORKDIR /app
 
 RUN true \

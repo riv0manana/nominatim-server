@@ -121,6 +121,8 @@ COPY start.sh /app/start.sh
 COPY startapache.sh /app/startapache.sh
 COPY startpostgres.sh /app/startpostgres.sh
 
+RUN sh /app/init.sh
+
 # Collapse image to single layer.
 FROM scratch
 
@@ -143,7 +145,5 @@ EXPOSE 5432
 EXPOSE 8080
 
 COPY conf.d/env $PROJECT_DIR/.env
-
-RUN /app/init.sh
 
 CMD /app/start.sh

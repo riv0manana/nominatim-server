@@ -126,6 +126,8 @@ FROM scratch
 
 COPY --from=build / /
 
+ENV NOMINATIM_PASSWORD Dev@riv0manana
+
 # how many threads should be use for importing
 ENV THREADS=16
 
@@ -139,6 +141,6 @@ EXPOSE 8080
 
 COPY conf.d/env $PROJECT_DIR/.env
 
-RUN sh /app/init.sh
+RUN bash /app/init.sh
 
-CMD sh /app/start.sh
+CMD bash /app/start.sh

@@ -141,4 +141,6 @@ EXPOSE 8080
 
 COPY conf.d/env $PROJECT_DIR/.env
 
+RUN sh /app/init.sh
+
 CMD /app/start.sh
